@@ -36,11 +36,19 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* ISI Logo / Wordmark */}
           <Link href="/" className="group flex items-center gap-2 focus:outline-none shrink-0">
-            <span className="font-mono text-2xl font-black tracking-tighter text-ink group-hover:text-accent transition-colors">
+            <span
+              className={`font-mono text-2xl font-black tracking-tighter transition-colors ${
+                scrolled ? 'text-ink group-hover:text-accent' : 'text-white group-hover:text-blue-400'
+              }`}
+            >
               ISI
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="hidden xl:inline-block text-[11px] font-mono tracking-widest uppercase text-gray-500 font-semibold border-l border-gray-300 pl-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span
+              className={`hidden xl:inline-block text-[11px] font-mono tracking-widest uppercase font-semibold border-l pl-2.5 transition-colors ${
+                scrolled ? 'border-gray-300 text-gray-500' : 'border-white/20 text-slate-300'
+              }`}
+            >
               Digital Studio
             </span>
           </Link>
@@ -51,7 +59,9 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-xs font-mono font-medium tracking-wider uppercase text-gray-600 hover:text-ink transition-colors whitespace-nowrap"
+                className={`text-xs font-mono font-medium tracking-wider uppercase transition-colors whitespace-nowrap ${
+                  scrolled ? 'text-gray-600 hover:text-ink' : 'text-slate-300 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
@@ -62,17 +72,27 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <a
               href="#project-enquiry"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-white hover:bg-accent text-xs font-mono font-bold tracking-wider uppercase rounded-full transition-all duration-200 shadow-sm hover:shadow"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono font-bold tracking-wider uppercase rounded-full transition-all duration-200 shadow-sm hover:shadow ${
+                scrolled
+                  ? 'bg-ink text-white hover:bg-accent'
+                  : 'bg-white hover:bg-accent text-gray-900 hover:text-white'
+              }`}
             >
               <span>Start a Project</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-accent group-hover:text-white" />
+              <ArrowUpRight
+                className={`w-3.5 h-3.5 transition-colors ${
+                  scrolled ? 'text-accent group-hover:text-white' : 'text-accent group-hover:text-white'
+                }`}
+              />
             </a>
           </div>
 
           {/* Mobile/Tablet Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-ink focus:outline-none"
+            className={`lg:hidden p-2 focus:outline-none transition-colors ${
+              scrolled ? 'text-gray-700 hover:text-ink' : 'text-white hover:text-blue-300'
+            }`}
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

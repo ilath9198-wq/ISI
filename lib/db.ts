@@ -376,11 +376,9 @@ export async function getSiteContent(): Promise<SiteContent> {
     try {
       const { data, error } = await supabase.from('isi_content').select('*');
       if (!error && data && data.length > 0) {
-        const content = { ...INITIAL_SITE_CONTENT };
+        const content: SiteContent = { ...INITIAL_SITE_CONTENT };
         data.forEach((row: { key: string; value: string }) => {
-          if (row.key in content) {
-            (content as Record<string, string>)[row.key] = row.value;
-          }
+          (content as any)[row.key] = row.value;
         });
         return content;
       }
@@ -408,6 +406,6 @@ export async function updateSiteContent(
     }
   }
 
-  memoryContent[key] = value;
+  (memoryContent as any)[key] = value;
   return true;
 }

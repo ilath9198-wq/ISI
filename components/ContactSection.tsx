@@ -1,7 +1,20 @@
 'use client';
 
 import React from 'react';
-import { Mail, Phone, ArrowUpRight, MessageSquare, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  ArrowUpRight,
+  MessageSquare,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Github,
+  Facebook,
+  Youtube,
+  Dribbble,
+  Globe,
+} from 'lucide-react';
 import { SiteContent } from '@/lib/types';
 
 interface Props {
@@ -11,10 +24,17 @@ interface Props {
 export default function ContactSection({ content }: Props) {
   const email = content?.contact_email || 'hello@isidigital.studio';
   const phone = content?.contact_phone || '+91 98765 43210';
-  const linkedin = content?.contact_linkedin || 'https://linkedin.com';
-  const twitter = content?.contact_twitter || 'https://twitter.com';
-  const instagram = content?.contact_instagram || 'https://instagram.com';
-  const github = content?.contact_github || 'https://github.com/ilath9198-wq';
+  const secondaryPhone = content?.contact_secondary_phone;
+
+  const socialLinks = [
+    { name: 'Instagram', url: content?.contact_instagram?.trim(), icon: Instagram },
+    { name: 'LinkedIn', url: content?.contact_linkedin?.trim(), icon: Linkedin },
+    { name: 'Facebook', url: content?.contact_facebook?.trim(), icon: Facebook },
+    { name: 'YouTube', url: content?.contact_youtube?.trim(), icon: Youtube },
+    { name: 'Dribbble', url: content?.contact_dribbble?.trim(), icon: Dribbble },
+    { name: 'Twitter', url: content?.contact_twitter?.trim(), icon: Twitter },
+    { name: 'GitHub', url: content?.contact_github?.trim(), icon: Github },
+  ].filter((s) => Boolean(s.url));
 
   return (
     <section id="contact" className="py-24 sm:py-32 bg-[#0C0F17] text-white relative overflow-hidden">
@@ -76,59 +96,42 @@ export default function ContactSection({ content }: Props) {
                 <Phone className="w-5 h-5 text-accent shrink-0" />
                 <span>{phone}</span>
               </a>
+              {secondaryPhone && (
+                <a
+                  href={`tel:${secondaryPhone.replace(/\s+/g, '')}`}
+                  className="text-sm font-mono text-gray-400 hover:text-white transition-colors flex items-center gap-2 mt-2"
+                >
+                  <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span>{secondaryPhone}</span>
+                </a>
+              )}
             </div>
 
-            <div className="pt-4 border-t border-white/10">
-              <span className="text-[11px] font-mono text-gray-400 uppercase tracking-widest block mb-3">
-                SOCIAL & REPOSITORIES
-              </span>
-              <div className="flex items-center gap-3">
-                {linkedin && (
-                  <a
-                    href={linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                )}
-                {twitter && (
-                  <a
-                    href={twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                )}
-                {instagram && (
-                  <a
-                    href={instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-4 h-4" />
-                  </a>
-                )}
-                {github && (
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                )}
+            {socialLinks.length > 0 && (
+              <div className="pt-4 border-t border-white/10">
+                <span className="text-[11px] font-mono text-gray-400 uppercase tracking-widest block mb-3">
+                  SOCIAL & REPOSITORIES
+                </span>
+                <div className="flex items-center gap-3 flex-wrap">
+                  {socialLinks.map((s) => {
+                    const Icon = s.icon;
+                    return (
+                      <a
+                        key={s.name}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent text-white flex items-center justify-center transition-all hover:scale-110"
+                        aria-label={s.name}
+                        title={s.name}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

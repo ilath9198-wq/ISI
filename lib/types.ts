@@ -43,9 +43,18 @@ export interface SiteContent {
   about_description: string;
   contact_email: string;
   contact_phone: string;
-  contact_linkedin: string;
-  contact_twitter: string;
-  contact_instagram: string;
-  contact_github: string;
+  contact_secondary_phone?: string;
+  contact_linkedin?: string;
+  contact_twitter?: string;
+  contact_instagram?: string;
+  contact_github?: string;
+  contact_facebook?: string;
+  contact_youtube?: string;
+  contact_pinterest?: string;
+  contact_behance?: string;
+  contact_dribbble?: string;
   footer_tagline: string;
+  footer_copyright?: string;
+  footer_contact_text?: string;
+  custom_socials?: { name: string; url: string }[];
 }

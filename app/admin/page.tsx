@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Plus,
+  Layers,
 } from 'lucide-react';
 import { IndustryCategory, ClientProject, EnquirySubmission } from '@/lib/types';
 
@@ -65,6 +66,14 @@ export default function AdminDashboardPage() {
       href: '/admin/enquiries',
       color: 'text-purple-600 bg-purple-50',
     },
+    {
+      label: 'Footer & Channels',
+      value: 'Live',
+      sub: 'Dynamic Social Icons',
+      icon: Layers,
+      href: '/admin/footer',
+      color: 'text-amber-600 bg-amber-50',
+    },
   ];
 
   return (
@@ -92,7 +101,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Metric Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {stats.map((st) => {
           const Icon = st.icon;
           return (

@@ -85,6 +85,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { label: 'Client Projects', href: '/admin/projects', icon: Briefcase },
     { label: 'Enquiries', href: '/admin/enquiries', icon: Mail },
     { label: 'Website Content', href: '/admin/content', icon: FileText },
+    { label: 'Footer Settings', href: '/admin/footer', icon: Layers },
   ];
 
   return (

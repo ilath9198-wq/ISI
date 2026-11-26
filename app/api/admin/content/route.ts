@@ -29,16 +29,26 @@ export async function PUT(req: NextRequest) {
       'about_description',
       'contact_email',
       'contact_phone',
+      'contact_secondary_phone',
       'contact_linkedin',
       'contact_twitter',
       'contact_instagram',
       'contact_github',
+      'contact_facebook',
+      'contact_youtube',
+      'contact_pinterest',
+      'contact_behance',
+      'contact_dribbble',
       'footer_tagline',
+      'footer_copyright',
+      'footer_contact_text',
+      'custom_socials',
     ];
 
     for (const key of allowedKeys) {
-      if (key in body && typeof body[key] === 'string') {
-        await updateSiteContent(key, body[key]);
+      if (key in body) {
+        const val = typeof body[key] === 'object' ? JSON.stringify(body[key]) : String(body[key]);
+        await updateSiteContent(key, val);
       }
     }
 

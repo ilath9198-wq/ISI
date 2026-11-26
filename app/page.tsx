@@ -36,7 +36,7 @@ export default async function HomePage() {
         <Process />
         <ContactSection content={content} />
       </main>
-      <Footer />
+      <Footer content={content} />
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function ClientProjects({ projects }: Props) {
             return (
               <div
                 key={proj.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FAFAFC] rounded-3xl p-6 sm:p-10 lg:p-12 border border-gray-200/80 shadow-editorial"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center bg-[#FAFAFC] hover:bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-gray-200/80 hover:border-gray-300 shadow-card hover:shadow-2xl transition-all duration-300"
               >
                 {/* Visual Screenshot (Span 7) */}
                 <div

@@ -214,11 +214,19 @@ export default function AdminContentPage() {
 
         {/* 4. Social & Footer Links */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200/80 shadow-xs space-y-5">
-          <div className="border-b border-gray-100 pb-3">
-            <h2 className="text-lg font-bold text-gray-900">Social Channels & Footer</h2>
-            <p className="text-xs font-mono text-gray-400 uppercase">
-              External social profiles and footer branding
-            </p>
+          <div className="border-b border-gray-100 pb-3 flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold text-gray-900">Social Channels & Footer</h2>
+              <p className="text-xs font-mono text-gray-400 uppercase">
+                External social profiles and footer branding
+              </p>
+            </div>
+            <a
+              href="/admin/footer"
+              className="text-xs font-mono font-bold text-accent hover:underline flex items-center gap-1"
+            >
+              <span>Manage All Footer Settings →</span>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

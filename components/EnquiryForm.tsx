@@ -90,7 +90,7 @@ export default function EnquiryForm() {
   return (
     <div
       id="project-enquiry"
-      className="w-full max-w-lg bg-white rounded-2xl p-7 sm:p-9 shadow-editorial border border-gray-100/90 relative overflow-hidden transition-all duration-300"
+      className="w-full max-w-lg bg-white/[0.98] backdrop-blur-xl rounded-2xl p-7 sm:p-9 shadow-2xl border border-white/50 relative overflow-hidden transition-all duration-300"
     >
       {/* Decorative Top Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-blue-500 to-indigo-600" />
@@ -216,7 +216,7 @@ export default function EnquiryForm() {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="group w-full inline-flex items-center justify-between px-7 py-4 bg-accent hover:bg-accent-hover text-white rounded-full font-mono font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="group w-full inline-flex items-center justify-between px-7 py-4 bg-accent hover:bg-accent-hover text-white rounded-full font-mono font-bold text-xs uppercase tracking-wider shadow-[0_4px_20px_rgba(0,82,255,0.35)] hover:shadow-[0_6px_25px_rgba(0,82,255,0.5)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               <span>{status === 'submitting' ? 'Submitting...' : "Let's Talk Design"}</span>
               <span className="w-7 h-7 rounded-full bg-white/20 group-hover:bg-white text-white group-hover:text-accent flex items-center justify-center transition-colors">
