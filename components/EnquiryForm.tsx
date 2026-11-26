@@ -90,7 +90,7 @@ export default function EnquiryForm() {
   return (
     <div
       id="project-enquiry"
-      className="w-full max-w-lg bg-white/[0.98] backdrop-blur-xl rounded-2xl p-7 sm:p-9 shadow-2xl border border-white/50 relative overflow-hidden transition-all duration-300"
+      className="w-full max-w-lg bg-white/[0.95] backdrop-blur-2xl rounded-2xl p-7 sm:p-9 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.35)] border border-white/60 relative overflow-hidden transition-all duration-300 ring-1 ring-black/5"
     >
       {/* Decorative Top Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent via-blue-500 to-indigo-600" />

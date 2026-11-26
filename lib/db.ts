@@ -378,8 +378,22 @@ export async function getSiteContent(): Promise<SiteContent> {
       if (!error && data && data.length > 0) {
         const content: SiteContent = { ...INITIAL_SITE_CONTENT };
         data.forEach((row: { key: string; value: string }) => {
-          (content as any)[row.key] = row.value;
+          if (row.key === 'custom_socials') {
+            try {
+              (content as any)[row.key] = typeof row.value === 'string' ? JSON.parse(row.value) : row.value;
+            } catch {
+              (content as any)[row.key] = [];
+            }
+          } else {
+            (content as any)[row.key] = row.value;
+          }
         });
+
+        // Ensure custom_socials is always an array
+        if (!Array.isArray(content.custom_socials)) {
+          content.custom_socials = [];
+        }
+
         return content;
       }
     } catch (e) {
@@ -387,18 +401,30 @@ export async function getSiteContent(): Promise<SiteContent> {
     }
   }
 
-  return { ...memoryContent };
+  const fallback: SiteContent = { ...INITIAL_SITE_CONTENT, ...memoryContent };
+  if (typeof fallback.custom_socials === 'string') {
+    try {
+      fallback.custom_socials = JSON.parse(fallback.custom_socials);
+    } catch {
+      fallback.custom_socials = [];
+    }
+  }
+  if (!Array.isArray(fallback.custom_socials)) {
+    fallback.custom_socials = [];
+  }
+  return fallback;
 }
 
 export async function updateSiteContent(
   key: keyof SiteContent,
-  value: string
+  value: any
 ): Promise<boolean> {
+  const stringValue = typeof value === 'object' ? JSON.stringify(value) : String(value ?? '');
   if (supabase) {
     try {
       const { error } = await supabase
         .from('isi_content')
-        .upsert({ key, value, updated_at: new Date().toISOString() });
+        .upsert({ key, value: stringValue, updated_at: new Date().toISOString() });
 
       if (!error) return true;
     } catch (e) {
@@ -406,6 +432,6 @@ export async function updateSiteContent(
     }
   }
 
-  (memoryContent as any)[key] = value;
+  (memoryContent as any)[key] = typeof value === 'object' ? value : value;
   return true;
 }

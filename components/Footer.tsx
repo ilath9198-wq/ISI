@@ -115,9 +115,23 @@ export default function Footer({ content }: FooterProps) {
     },
   ].filter((item) => Boolean(item.url));
 
-  // Also include any custom socials from admin settings
-  const customItems = (content?.custom_socials || [])
-    .filter((c) => Boolean(c.url?.trim()))
+  // Safely parse custom socials whether it's an array or a JSON string
+  let parsedCustomSocials: Array<{ name: string; url: string }> = [];
+  if (Array.isArray(content?.custom_socials)) {
+    parsedCustomSocials = content.custom_socials;
+  } else if (typeof content?.custom_socials === 'string') {
+    try {
+      const parsed = JSON.parse(content.custom_socials);
+      if (Array.isArray(parsed)) {
+        parsedCustomSocials = parsed;
+      }
+    } catch {
+      parsedCustomSocials = [];
+    }
+  }
+
+  const customItems = parsedCustomSocials
+    .filter((c) => Boolean(c?.url?.trim()))
     .map((c) => ({
       name: c.name,
       url: c.url.trim(),
