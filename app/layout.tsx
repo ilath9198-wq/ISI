@@ -14,7 +14,11 @@ export const metadata: Metadata = {
     'Client Acquisition',
     'India Web Agency',
   ],
-  authors: [{ name: 'ISI Digital Studio' }],
+  authors: [{ name: 'Infinity Smart India' }],
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
   openGraph: {
     title: 'ISI — Web Development Portfolio & Agency Website',
     description:

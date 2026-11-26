@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
@@ -93,11 +94,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex flex-col w-64 bg-[#0E131F] text-gray-300 border-r border-gray-800">
         <div className="p-6 border-b border-gray-800 flex items-center justify-between">
-          <Link href="/admin" className="flex items-center gap-2">
-            <span className="font-mono text-xl font-black text-white tracking-tighter">
-              ISI
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+          <Link href="/admin" className="flex items-center gap-2.5" title="Infinity Smart India Admin">
+            <Image
+              src="/images/logo-white.png"
+              alt="Infinity Smart India"
+              width={130}
+              height={26}
+              className="h-6 w-auto object-contain"
+            />
             <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 font-semibold px-2 py-0.5 rounded bg-white/10">
               Admin
             </span>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Lock,
   ArrowUp,
@@ -155,11 +156,17 @@ export default function Footer({ content }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Row: Brand & Navigation */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
-          {/* Logo & Tagline */}
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-xl font-black text-white tracking-tighter">
-              ISI
-            </span>
+          {/* Infinity Smart India Logo & Tagline */}
+          <div className="flex items-center gap-4">
+            <Link href="/" title="Infinity Smart India">
+              <Image
+                src="/images/logo-white.png"
+                alt="Infinity Smart India"
+                width={150}
+                height={30}
+                className="h-6 sm:h-7 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+              />
+            </Link>
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
             <span className="font-mono text-gray-400 text-xs tracking-wider uppercase">
               {tagline}

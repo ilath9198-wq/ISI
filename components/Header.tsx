@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Menu, X, Sparkles } from 'lucide-react';
 
 export default function Header() {
@@ -34,23 +35,28 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* ISI Logo / Wordmark */}
-          <Link href="/" className="group flex items-center gap-2 focus:outline-none shrink-0">
-            <span
-              className={`font-mono text-2xl font-black tracking-tighter transition-colors ${
-                scrolled ? 'text-ink group-hover:text-accent' : 'text-white group-hover:text-blue-400'
+          {/* Infinity Smart India Logo */}
+          <Link href="/" className="group flex items-center focus:outline-none shrink-0" title="Infinity Smart India">
+            <Image
+              src="/images/logo.png"
+              alt="Infinity Smart India"
+              width={160}
+              height={32}
+              priority
+              className={`h-7 sm:h-8 w-auto object-contain transition-opacity duration-200 ${
+                scrolled ? 'block' : 'hidden'
               }`}
-            >
-              ISI
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <span
-              className={`hidden xl:inline-block text-[11px] font-mono tracking-widest uppercase font-semibold border-l pl-2.5 transition-colors ${
-                scrolled ? 'border-gray-300 text-gray-500' : 'border-white/20 text-slate-300'
+            />
+            <Image
+              src="/images/logo-white.png"
+              alt="Infinity Smart India"
+              width={160}
+              height={32}
+              priority
+              className={`h-7 sm:h-8 w-auto object-contain transition-opacity duration-200 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] ${
+                scrolled ? 'hidden' : 'block'
               }`}
-            >
-              Digital Studio
-            </span>
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

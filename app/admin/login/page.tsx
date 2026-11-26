@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Lock, User, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
 
 export default function AdminLoginPage() {
@@ -43,11 +44,14 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         {/* Logo Card Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-3">
-            <span className="font-mono text-3xl font-black text-gray-900 tracking-tighter">
-              ISI
-            </span>
-            <span className="w-2 h-2 rounded-full bg-accent" />
+          <Link href="/" className="inline-block mb-4" title="Infinity Smart India">
+            <Image
+              src="/images/logo.png"
+              alt="Infinity Smart India"
+              width={180}
+              height={36}
+              className="h-8 w-auto object-contain mx-auto"
+            />
           </Link>
           <h1 className="text-xl font-bold text-gray-900 tracking-tight">
             Studio Management Portal
