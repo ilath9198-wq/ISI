@@ -223,25 +223,25 @@ export default function AdminCategoriesPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+            <table className="w-full text-left text-xs min-w-[760px]">
               <thead className="bg-gray-50/80 border-b border-gray-100 font-mono text-[11px] text-gray-500 uppercase tracking-wider">
                 <tr>
-                  <th className="py-3.5 px-4 text-center">Order</th>
-                  <th className="py-3.5 px-4">Preview</th>
-                  <th className="py-3.5 px-6">Industry Name & Details</th>
-                  <th className="py-3.5 px-4">Live Demo URL</th>
-                  <th className="py-3.5 px-4 text-center">Status</th>
-                  <th className="py-3.5 px-4 text-right">Actions</th>
+                  <th className="py-3.5 px-3 text-center w-20">Order</th>
+                  <th className="py-3.5 px-3 w-20">Preview</th>
+                  <th className="py-3.5 px-5">Industry Name & Details</th>
+                  <th className="py-3.5 px-4 w-52">Live Demo URL</th>
+                  <th className="py-3.5 px-3 text-center w-28">Status</th>
+                  <th className="py-3.5 px-4 text-right w-24">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 font-sans">
                 {categories.map((cat, idx) => (
                   <tr key={cat.id} className="hover:bg-gray-50/60 transition-colors">
                     {/* Order Controls */}
-                    <td className="py-4 px-4 text-center">
-                      <div className="inline-flex items-center gap-1 font-mono text-xs font-bold text-gray-700 bg-gray-100 px-2.5 py-1 rounded-md">
+                    <td className="py-3 px-3 text-center">
+                      <div className="inline-flex items-center gap-1 font-mono text-xs font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded-md">
                         <span>{cat.display_order}</span>
-                        <div className="flex flex-col ml-1">
+                        <div className="flex flex-col ml-0.5">
                           <button
                             onClick={() => handleMoveOrder(idx, 'up')}
                             disabled={idx === 0}
@@ -263,8 +263,8 @@ export default function AdminCategoriesPage() {
                     </td>
 
                     {/* Thumbnail Preview */}
-                    <td className="py-4 px-4">
-                      <div className="relative w-16 h-10 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
+                    <td className="py-3 px-3">
+                      <div className="relative w-14 h-9 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
                         <Image
                           src={cat.preview_image}
                           alt={cat.name}
@@ -275,7 +275,7 @@ export default function AdminCategoriesPage() {
                     </td>
 
                     {/* Name & Subtitle */}
-                    <td className="py-4 px-6 max-w-sm">
+                    <td className="py-3 px-5">
                       <div className="font-bold text-gray-900 flex items-center gap-2">
                         <span>{cat.name}</span>
                         {cat.featured && (
@@ -284,13 +284,13 @@ export default function AdminCategoriesPage() {
                           </span>
                         )}
                       </div>
-                      <p className="text-gray-500 text-[11px] truncate mt-0.5">
+                      <p className="text-gray-500 text-[11px] truncate max-w-xs mt-0.5">
                         {cat.subtitle}
                       </p>
                     </td>
 
                     {/* Live Demo URL */}
-                    <td className="py-4 px-4 max-w-xs truncate">
+                    <td className="py-3 px-4 max-w-[200px] truncate">
                       <a
                         href={cat.live_url}
                         target="_blank"
@@ -303,7 +303,7 @@ export default function AdminCategoriesPage() {
                     </td>
 
                     {/* Publish Toggle */}
-                    <td className="py-4 px-4 text-center">
+                    <td className="py-3 px-3 text-center">
                       <button
                         onClick={() => handleTogglePublish(cat)}
                         className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase transition-colors ${
@@ -327,21 +327,21 @@ export default function AdminCategoriesPage() {
                     </td>
 
                     {/* Action Buttons */}
-                    <td className="py-4 px-4 text-right">
-                      <div className="inline-flex items-center gap-2">
+                    <td className="py-3 px-4 text-right">
+                      <div className="inline-flex items-center gap-1">
                         <button
                           onClick={() => openEditModal(cat)}
                           className="p-1.5 text-gray-500 hover:text-accent hover:bg-blue-50 rounded-lg transition-colors"
                           title="Edit Category"
                         >
-                          <Pencil className="w-4 h-4" />
+                          <Pencil className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDelete(cat.id, cat.name)}
                           className="p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                           title="Delete Category"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </td>

@@ -198,26 +198,26 @@ export default function AdminProjectsPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+            <table className="w-full text-left text-xs min-w-[700px]">
               <thead className="bg-gray-50/80 border-b border-gray-100 font-mono text-[11px] text-gray-500 uppercase tracking-wider">
                 <tr>
-                  <th className="py-3.5 px-4 text-center">Order</th>
-                  <th className="py-3.5 px-4">Preview</th>
-                  <th className="py-3.5 px-6">Project Name & Scope</th>
-                  <th className="py-3.5 px-4">Live URL</th>
-                  <th className="py-3.5 px-4 text-center">Status</th>
-                  <th className="py-3.5 px-4 text-right">Actions</th>
+                  <th className="py-3.5 px-3 text-center w-16">Order</th>
+                  <th className="py-3.5 px-3 w-20">Preview</th>
+                  <th className="py-3.5 px-5">Project Name & Scope</th>
+                  <th className="py-3.5 px-4 w-52">Live URL</th>
+                  <th className="py-3.5 px-3 text-center w-28">Status</th>
+                  <th className="py-3.5 px-4 text-right w-24">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 font-sans">
                 {projects.map((proj) => (
                   <tr key={proj.id} className="hover:bg-gray-50/60 transition-colors">
-                    <td className="py-4 px-4 text-center font-mono font-bold text-gray-700">
+                    <td className="py-3 px-3 text-center font-mono font-bold text-gray-700">
                       #{proj.display_order}
                     </td>
 
-                    <td className="py-4 px-4">
-                      <div className="relative w-16 h-10 rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
+                    <td className="py-3 px-3">
+                      <div className="relative w-14 h-9 rounded-md overflow-hidden bg-gray-100 border border-gray-200">
                         <Image
                           src={proj.preview_image}
                           alt={proj.name}
@@ -227,9 +227,9 @@ export default function AdminProjectsPage() {
                       </div>
                     </td>
 
-                    <td className="py-4 px-6 max-w-sm">
+                    <td className="py-3 px-5">
                       <div className="font-bold text-gray-900 text-sm">{proj.name}</div>
-                      <p className="text-gray-500 text-[11px] truncate mt-0.5">
+                      <p className="text-gray-500 text-[11px] truncate max-w-xs mt-0.5">
                         {proj.description}
                       </p>
                       {proj.tags && proj.tags.length > 0 && (
@@ -246,7 +246,7 @@ export default function AdminProjectsPage() {
                       )}
                     </td>
 
-                    <td className="py-4 px-4 max-w-xs truncate">
+                    <td className="py-3 px-4 max-w-[200px] truncate">
                       <a
                         href={proj.live_url}
                         target="_blank"
@@ -258,7 +258,7 @@ export default function AdminProjectsPage() {
                       </a>
                     </td>
 
-                    <td className="py-4 px-4 text-center">
+                    <td className="py-3 px-3 text-center">
                       <button
                         onClick={() => handleTogglePublish(proj)}
                         className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase transition-colors ${
@@ -281,21 +281,21 @@ export default function AdminProjectsPage() {
                       </button>
                     </td>
 
-                    <td className="py-4 px-4 text-right">
-                      <div className="inline-flex items-center gap-2">
+                    <td className="py-3 px-4 text-right">
+                      <div className="inline-flex items-center gap-1">
                         <button
                           onClick={() => openEditModal(proj)}
                           className="p-1.5 text-gray-500 hover:text-accent hover:bg-blue-50 rounded-lg transition-colors"
                           title="Edit Project"
                         >
-                          <Pencil className="w-4 h-4" />
+                          <Pencil className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDelete(proj.id, proj.name)}
                           className="p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                           title="Delete Project"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </td>

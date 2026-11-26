@@ -101,7 +101,7 @@ export default function AdminContentPage() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-8 pb-32">
         {/* 1. Hero Section Content */}
         <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200/80 shadow-xs space-y-5">
           <div className="border-b border-gray-100 pb-3">

@@ -2,13 +2,14 @@ import { createClient } from '@supabase/supabase-js';
 import { IndustryCategory, ClientProject, EnquirySubmission, SiteContent } from './types';
 import { INITIAL_CATEGORIES, INITIAL_CLIENT_PROJECTS, INITIAL_SITE_CONTENT } from './seedData';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  'https://quslrmacqonpxucolgil.supabase.co';
+const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1c2xybWFjcW9ucHh1Y29sZ2lsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU0MTI0NTcsImV4cCI6MjExMDk4ODQ1N30.1zcaafbKNErzpIpnnhQZyWjWyJivTSQtxsFQNOSbVdo';
 
-export const supabase =
-  supabaseUrl && supabaseAnonKey
-    ? createClient(supabaseUrl, supabaseAnonKey)
-    : null;
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // In-memory fallback caches
 let memoryCategories: IndustryCategory[] = [...INITIAL_CATEGORIES];

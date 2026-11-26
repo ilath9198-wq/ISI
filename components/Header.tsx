@@ -35,23 +35,23 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* ISI Logo / Wordmark */}
-          <Link href="/" className="group flex items-center gap-2.5 focus:outline-none">
+          <Link href="/" className="group flex items-center gap-2 focus:outline-none shrink-0">
             <span className="font-mono text-2xl font-black tracking-tighter text-ink group-hover:text-accent transition-colors">
               ISI
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="hidden sm:inline-block text-[11px] font-mono tracking-widest uppercase text-gray-500 font-semibold border-l border-gray-300 pl-2.5">
+            <span className="hidden xl:inline-block text-[11px] font-mono tracking-widest uppercase text-gray-500 font-semibold border-l border-gray-300 pl-2.5">
               Digital Studio
             </span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-xs font-mono font-medium tracking-wider uppercase text-gray-600 hover:text-ink transition-colors"
+                className="text-xs font-mono font-medium tracking-wider uppercase text-gray-600 hover:text-ink transition-colors whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -59,7 +59,7 @@ export default function Header() {
           </nav>
 
           {/* Right Action */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
             <a
               href="#project-enquiry"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-white hover:bg-accent text-xs font-mono font-bold tracking-wider uppercase rounded-full transition-all duration-200 shadow-sm hover:shadow"
@@ -69,10 +69,10 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-ink focus:outline-none"
+            className="lg:hidden p-2 text-gray-700 hover:text-ink focus:outline-none"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
