@@ -3,7 +3,6 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import IndustryCategories from '@/components/IndustryCategories';
 import ClientProjects from '@/components/ClientProjects';
-import About from '@/components/About';
 import Process from '@/components/Process';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -29,10 +28,6 @@ export default async function HomePage() {
         />
         <IndustryCategories categories={categories} />
         <ClientProjects projects={projects} />
-        <About
-          headline={content.about_headline}
-          description={content.about_description}
-        />
         <Process />
         <ContactSection content={content} />
       </main>

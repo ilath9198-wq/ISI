@@ -17,32 +17,20 @@ export default function IndustryCategories({ categories }: Props) {
     <section id="industries" className="py-24 sm:py-32 bg-[#F8FAFC] border-b border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-12 sm:mb-16">
           {/* Visible Small Label Above Heading */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-accent text-[11px] font-mono uppercase tracking-widest font-semibold mb-4 shadow-2xs">
             <Globe className="w-3.5 h-3.5" />
             <span>11 INDUSTRY-SPECIFIC WEBSITE DEMOS</span>
           </div>
 
-          {/* New Section Heading */}
+          {/* Section Heading */}
           <h2 className="text-3xl sm:text-5xl font-black text-ink tracking-tight leading-tight">
             Explore Website Demos by Industry.{' '}
             <span className="text-gray-400 font-light block sm:inline">
               See What&apos;s Possible for Your Business.
             </span>
           </h2>
-
-          {/* Mandatory Description */}
-          <p className="text-base sm:text-lg text-gray-600 mt-5 leading-relaxed font-normal">
-            Every industry has its own digital identity. We&apos;ve created 11 website demonstrations
-            across different industries to help you visualize how your business could look online.
-            Explore the designs, experience the layouts and discover the possibilities.
-          </p>
-
-          {/* Short Instruction */}
-          <div className="mt-6 flex items-center gap-2 text-xs font-mono font-semibold text-accent tracking-wider uppercase">
-            <span>Select an industry to explore its live website demo ↗</span>
-          </div>
         </div>
 
         {/* ONE CONSISTENT SYSTEM: Premium Editorial 3-Column Portfolio Grid */}

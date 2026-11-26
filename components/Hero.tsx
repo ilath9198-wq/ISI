@@ -85,34 +85,6 @@ export default function Hero({
                 <span>Start a Project</span>
               </a>
             </div>
-
-            {/* Trust Metrics Strip */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/15 max-w-lg">
-              <div>
-                <span className="font-mono text-2xl sm:text-3xl font-black text-white block">
-                  11
-                </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
-                  Industry Demos
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-2xl sm:text-3xl font-black text-blue-400 block">
-                  02
-                </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
-                  Client Launches
-                </span>
-              </div>
-              <div>
-                <span className="font-mono text-2xl sm:text-3xl font-black text-emerald-400 block">
-                  100%
-                </span>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-medium">
-                  Bespoke Code
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Compact Project Enquiry Form (Span 5) */}

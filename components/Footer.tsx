@@ -163,18 +163,18 @@ export default function Footer({ content }: FooterProps) {
             </span>
           </div>
 
-          {/* Quick Anchor Links */}
+          {/* Quick Navigation Links */}
           <div className="flex flex-wrap items-center gap-6 font-mono text-[11px] uppercase tracking-wider">
-            <a href="#industries" className="hover:text-white transition-colors">
+            <a href="/#industries" className="hover:text-white transition-colors">
               Website Demos
             </a>
-            <a href="#client-work" className="hover:text-white transition-colors">
+            <a href="/#client-work" className="hover:text-white transition-colors">
               Client Projects
             </a>
-            <a href="#about" className="hover:text-white transition-colors">
+            <Link href="/about" className="hover:text-white transition-colors">
               About
-            </a>
-            <a href="#contact" className="hover:text-white transition-colors">
+            </Link>
+            <a href="/#contact" className="hover:text-white transition-colors">
               Contact
             </a>
           </div>

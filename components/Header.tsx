@@ -17,11 +17,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Explore Websites', href: '#industries' },
-    { label: 'Our Work', href: '#client-work' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Explore Websites', href: '/#industries' },
+    { label: 'Our Work', href: '/#client-work' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -71,7 +71,7 @@ export default function Header() {
           {/* Right Action */}
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <a
-              href="#project-enquiry"
+              href="/#project-enquiry"
               className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono font-bold tracking-wider uppercase rounded-full transition-all duration-200 shadow-sm hover:shadow ${
                 scrolled
                   ? 'bg-ink text-white hover:bg-accent'
@@ -118,7 +118,7 @@ export default function Header() {
 
           <div className="pt-3 border-t border-gray-100 flex flex-col gap-3">
             <a
-              href="#project-enquiry"
+              href="/#project-enquiry"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center py-3 bg-accent text-white text-xs font-mono font-bold uppercase tracking-wider rounded-full"
             >
