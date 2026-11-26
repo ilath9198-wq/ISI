@@ -144,7 +144,10 @@ export default function Footer({ content }: FooterProps) {
   const phone = content?.contact_phone?.trim();
   const secondaryPhone = content?.contact_secondary_phone?.trim();
   const tagline = content?.footer_tagline?.trim() || 'Web Development Portfolio & Client Acquisition';
-  const copyright = content?.footer_copyright?.trim() || 'ISI Studio. All rights reserved.';
+  const rawCopyright = content?.footer_copyright?.trim() || 'ISI Studio. All rights reserved.';
+  const displayCopyright = rawCopyright.startsWith('©')
+    ? rawCopyright
+    : `© ${new Date().getFullYear()} ${rawCopyright}`;
   const contactText = content?.footer_contact_text?.trim();
 
   return (
@@ -255,7 +258,7 @@ export default function Footer({ content }: FooterProps) {
 
         {/* Bottom Row: Copyright & Admin Portal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-500 font-mono">
-          <p>© {new Date().getFullYear()} {copyright}</p>
+          <p>{displayCopyright}</p>
 
           <div className="flex items-center gap-4">
             <Link
