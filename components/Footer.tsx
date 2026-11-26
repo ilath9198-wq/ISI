@@ -157,8 +157,8 @@ export default function Footer({ content }: FooterProps) {
         {/* Top Row: Brand & Navigation */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
           {/* Infinity Smart India Logo & Tagline */}
-          <div className="flex items-center gap-4">
-            <Link href="/" title="Infinity Smart India">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <Link href="/" title="Infinity Smart India" className="shrink-0">
               <Image
                 src="/images/logo-white.png"
                 alt="Infinity Smart India"
@@ -167,7 +167,7 @@ export default function Footer({ content }: FooterProps) {
                 className="h-6 sm:h-7 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
             <span className="font-mono text-gray-400 text-xs tracking-wider uppercase">
               {tagline}
             </span>
