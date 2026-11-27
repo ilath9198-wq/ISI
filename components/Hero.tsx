@@ -11,7 +11,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  headline = 'Websites That Make Your Business Stand Out.',
+  headline = 'Websites & Apps That Make Your Business Stand Out',
   description = 'We design and develop thoughtful digital experiences for businesses across industries. Explore our website concepts and see what your business could look like online.',
 }: HeroProps) {
   return (
@@ -57,9 +57,9 @@ export default function Hero({
 
             {/* Main Editorial Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
-              Websites That Make Your Business{' '}
+              Websites & Apps That Make Your Business{' '}
               <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent italic font-serif font-normal">
-                Stand Out.
+                Stand Out
               </span>
             </h1>
 

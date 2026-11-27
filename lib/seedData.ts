@@ -148,7 +148,7 @@ export const INITIAL_CLIENT_PROJECTS: ClientProject[] = [
 ];
 
 export const INITIAL_SITE_CONTENT: SiteContent = {
-  hero_headline: 'Websites That Make Your Business Stand Out.',
+  hero_headline: 'Websites & Apps That Make Your Business Stand Out',
   hero_description: 'We design and develop thoughtful digital experiences for businesses across industries. Explore our website concepts and see what your business could look like online.',
   about_headline: 'Thoughtful Websites. Built Around Your Business.',
   about_description: 'At ISI, we believe every business deserves a digital presence that reflects its identity. We create modern, functional and visually engaging websites designed to help businesses present themselves professionally online.',
